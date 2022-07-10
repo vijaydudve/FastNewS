@@ -1,6 +1,5 @@
 import requests
 import json
-import time
 import streamlit as st
 
 
@@ -9,14 +8,8 @@ st.set_page_config(page_title='FastNewS', page_icon='https://encrypted-tbn0.gsta
 def get_trending_news():
     url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=3b8b2056a5eb4e66bb2e0a74762ef29a"
     news_data = requests.get(url).text
-    # # print(news)
     news_json =json.loads(news_data)
-    # # print(news_json["articles"])
     news=news_json["articles"]
-    # # print(news)
-    # for i in news:
-    #      print(i["description"])
-    #      # speak(i["description"])
     return news
 
 def get_categorical_news(topic):
@@ -64,7 +57,6 @@ def main():
         display(news,news_count)
     elif cat == category[2]:
         topics=['choose topic','health','sports','business','technology','entertainment']
-        # st.subheader("choose your favorite topic")
         choosen_topic = st.selectbox("Choose Category",topics)
         if choosen_topic == topics[0]:
             st.warning("please choose topic")
