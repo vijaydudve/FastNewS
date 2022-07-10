@@ -44,7 +44,7 @@ def display(newss, quantity):
 
 
 
-def run():
+def main():
     st.title("FastNewS: Small & Quick Summary")
     col1, col2, col3 = st.columns([3,5,3])
     with col1:
@@ -76,4 +76,6 @@ def run():
                 display(news,news_count)
             else:
                 st.error("No {} news found",format(choosen_topic))
-run()
+
+if __name__ == '__main__':
+    main()
